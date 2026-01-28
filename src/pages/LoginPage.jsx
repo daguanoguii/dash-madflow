@@ -1,5 +1,5 @@
 
-import { Grid, Box, Typography, TextField, IconButton, Link } from "@mui/material";
+import { Grid, Box, Typography, TextField, IconButton, Link, Button } from "@mui/material";
 import { useState } from "react";
 import VisibilityOffSharpIcon from '@mui/icons-material/VisibilityOffSharp';
 import VisibilitySharpIcon from '@mui/icons-material/VisibilitySharp';
@@ -18,7 +18,7 @@ export const Login = () => {
 
         <Grid container sx={{minHeight: "100vh",
                              minWidth: "100vh",
-                             backgroundColor: cyan[50]
+                             
         }}>
             <Grid item
                     xs={12}
@@ -29,32 +29,43 @@ export const Login = () => {
                     sx={{ minHeight: "100vh", minWidth: "100vh" }}
             >
                 <Box sx={{
-                        backgroundColor: red[50],
-                        padding: "20px",
-                }}>
+                        
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        width: "100%",
+                        maxWidth: "500px",
+                        padding: "40px",
+                        borderRadius: "10px",
+                        boxShadow: "3px 4px 10px rgba(0, 1, 1, 0.33)",
+                        gap: '5rem',                     
+                        background: 'linear-gradient(180deg, rgba(221, 232, 238, 0.5) 48.5%, rgba(222, 230, 234, 0.5) 100%)',
+                        height: '80vh',
+
+                    }}>
                     
                     <Box 
                          sx={{
                             width: "100%",
-                            maxWidth: 400,
+                            maxWidth: 600,
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'center',
                             justifyContent: 'center',
                             }}>
-                        <Typography variant="h4" gutterBottom sx={{ fontFamily: 'Inter, sans-serif', fontWeight: 700, letterSpacing: '3px',}}>
-                            Login
-                        </Typography>
 
-                        <Typography variant="subtitle1">
+                   
+                        <Typography variant="h4" gutterBottom={false} >
+                             Login
+                        </Typography>
+                         
+
+                        <Typography variant="subtitle1" >
                         Olá, Seja Bem vindo!
                         </Typography>
 
-                        <Typography variant="subtitle2" 
-                                    sx={{
-                                        mt: 1,
-                                        alignSelf: 'flex-start',
-                        }}>
+                        <Typography variant="label" 
+                                    >
                         email
 
                         </Typography>
@@ -66,11 +77,8 @@ export const Login = () => {
                         margin="none"  />
 
                         <Typography 
-                        variant="subtitle2"
-                        fullWidth
-                        sx={{
-                            mt: 1,
-                            alignSelf: 'flex-start',}}>
+                        variant="label"
+                        fullWidth sx={{mt: 3}}>
                         senha
                         </Typography>
 
@@ -94,33 +102,27 @@ export const Login = () => {
                             {'Esqueceu a senha?'}
                         </Link>
                         
-                        <Box sx={{ m: 2, width: 300, height: 50, backgroundColor: red[900], borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <Typography variant="button" display="block" gutterBottom sx={{ color: 'white', fontFamily: 'Inter, sans-serif', fontWeight: 600, letterSpacing: '1px' }}>
-                                ENTRAR 
-                            </Typography>
-                        </Box>
+                        <Button variant="contained" >
+                            entrar
+                        </Button>
 
                         <Typography 
-                        variant="subtitle2"
-                        fullWidth
-                        sx={{
-                            mt: 1,
-                            alignSelf: 'center',}}>
+                        variant="opcoes">
                         Ou entre com:
                         </Typography>
                         
-                        <Box sx={{ m: 2, width: 300, height: 50, backgroundColor: 'white', borderRadius: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', border: 1, borderColor: red[900] }}>
-                            <Typography variant="button" display="block" gutterBottom sx={{ color: red[900], fontFamily: 'Inter, sans-serif', fontWeight: 600, letterSpacing: '1px' }}>
-                                <FcGoogle size={17}/>ENTRE COM O GOOGLE
-                            </Typography>
-                        </Box>
+                        <Button variant="outlined" 
+                                startIcon={<FcGoogle  />}>
+                                  ENTRE COM O GOOGLE
+                        </Button>
 
-                        <Box sx={{display: "inline"}}>
+                        <Box sx={{display: "inline",
+                                  mt: 6,
+                        }}>
                             <Typography 
-                            variant="subtitle2"
-                            fullWidth
+                            variant="sing"
                             sx={{
-                                mt: 1,
+                                mt: 15,
                                 alignSelf: 'center',}}>
                             Não tem uma conta? <Link href="#" sx={{paddingLeft: "3px"}}>
                             {'Inscreva-se'}</Link>
