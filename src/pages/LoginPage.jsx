@@ -4,7 +4,6 @@ import { useState } from "react";
 import VisibilityOffSharpIcon from '@mui/icons-material/VisibilityOffSharp';
 import VisibilitySharpIcon from '@mui/icons-material/VisibilitySharp';
 import bg from '../assets/medflow.jpeg';
-import { red, cyan,  } from "@mui/material/colors";
 import { FcGoogle } from 'react-icons/fc';
 
 export const Login = () => {
@@ -18,6 +17,7 @@ export const Login = () => {
 
         <Grid container sx={{minHeight: "100vh",
                              minWidth: "100vh",
+                             display: 'flex',
                              
         }}>
             <Grid item
@@ -29,11 +29,11 @@ export const Login = () => {
                     sx={{ minHeight: "100vh", minWidth: "100vh" }}
             >
                 <Box sx={{
-                        
+                        marginLeft: 10,
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
-                        width: "100%",
+                        width: "90%",
                         maxWidth: "500px",
                         padding: "40px",
                         borderRadius: "10px",
@@ -46,6 +46,7 @@ export const Login = () => {
                     
                     <Box 
                          sx={{
+                            
                             width: "100%",
                             maxWidth: 600,
                             display: 'flex',
@@ -142,26 +143,30 @@ export const Login = () => {
             <Grid
 
                 item
-                xs={12}
+                xs={0}
                 md={7}
-                sx={{
-                    paddingTop: "80px",
-                    height: "85vh",
-                    width: "10%",
+                display={{ xs: "none", md: "flex" }} 
+                justifyContent="center" 
+                alignItems="center"
+                    
+                    
+                    
+                    
+            >
+                <Box sx={{
+
+                    marginLeft:'50px',
+                    paddingTop: "70px",
                     backgroundImage: `url(${bg})`,
-                    minHeight: "70vh",
-                    minWidth: "70vh",
+                    minHeight: "90vh",
+                    minWidth: "68vh",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
                     display: { xs: 'none', md: 'block' },
                     borderRadius: "20px"
-                    
-                    
-                    
-                    }}
-            >
-                
+                }}>
+                 </Box>   
             </Grid>
         </Grid>
         );
