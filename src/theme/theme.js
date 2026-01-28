@@ -72,6 +72,17 @@ export const theme = createTheme({
             marginTop: 30,
             marginBottom: 10,
         },
+        nome:{
+            fontFamily: 'Sora, sans-serif',
+            fontWeight: 400,
+            fontSize: '0.90rem',
+            letterSpacing: '0.10px',
+            fontStyle: 'none',
+            color: '#442fbca4',
+            alignSelf: 'flex-start',
+            marginTop: 15,
+            marginLeft: 15,
+        },
         
     },
 
