@@ -1,3 +1,4 @@
+
 import { Grid, Box, Typography, TextField, IconButton, Link, Button } from "@mui/material";
 import { useState } from "react";
 import VisibilityOffSharpIcon from '@mui/icons-material/VisibilityOffSharp';
@@ -6,7 +7,9 @@ import bg from '../assets/medflow.jpeg';
 import { FcGoogle } from 'react-icons/fc';
 import { Link as RouterLink } from "react-router-dom";
 
-export const SingUp = () => {
+export const Login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -18,7 +21,6 @@ export const SingUp = () => {
         <Grid container sx={{minHeight: "100vh",
                              minWidth: "100vh",
                              display: 'flex',
-                             background: 'linear-gradient(180deg, rgba(221, 232, 238, 0.5) 48.5%, rgba(222, 230, 234, 0.5) 100%)'
                              
         }}>
             <Grid item
@@ -40,8 +42,8 @@ export const SingUp = () => {
                         borderRadius: "10px",
                         boxShadow: "3px 4px 10px rgba(0, 1, 1, 0.33)",
                         gap: '5rem',                     
-                        background: 'linear-gradient(180deg, rgb(255, 255, 255) 48.5%, rgba(251, 251, 251, 0.86) 100%)',
-                       
+                        background: 'linear-gradient(180deg, rgba(221, 232, 238, 0.5) 48.5%, rgba(222, 230, 234, 0.5) 100%)',
+                        height: '80vh',
 
                     }}>
                     
@@ -57,26 +59,14 @@ export const SingUp = () => {
                             }}>
 
                    
-                        <Typography variant="h4" gutterBottom={false} sx={{fontSize: 40,}} >
-                             Crie sua conta
+                        <Typography variant="h4" gutterBottom={false} >
+                             Login
                         </Typography>
                          
 
                         <Typography variant="subtitle1" >
-                        Gerencie melhor, economize mais.
+                        Olá, Seja Bem vindo!
                         </Typography>
-
-                        <Typography variant="nome" 
-                                    >
-                        Nome Completo
-
-                        </Typography>
-
-                        <TextField
-                        placeholder="Digite Seu Nome"
-                        color="secondary" 
-                        fullWidth
-                        margin="none"  />
 
                         <Typography variant="label" 
                                     >
@@ -112,35 +102,12 @@ export const SingUp = () => {
                             }}
                         />
 
-                        <Typography 
-                        variant="label"
-                        fullWidth sx={{mt: 3}}>
-                        Confirme sua Senha
-                        </Typography>
-
-                        <TextField
-                        placeholder="Digite sua Senha"
-                        type={showPassword ? "text" : "password"}
-                        color="secondary" 
-                        fullWidth
-                        margin="none"
-                        variant="outlined"
-                            InputProps={{
-                                endAdornment: (
-                                    <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
-                                        {showPassword ? <VisibilityOffSharpIcon /> : <VisibilitySharpIcon />}
-                                    </IconButton>
-                                )
-                            }}
-                        sx={{
-                            marginBottom: 2,
-                        }}
-                        />
-
-                        
+                        <Link href="#" underline="hover">
+                            {'Esqueceu a senha?'}
+                        </Link>
                         
                         <Button variant="contained" >
-                            Registrar-se
+                            entrar
                         </Button>
 
                         <Typography 
@@ -161,12 +128,9 @@ export const SingUp = () => {
                             sx={{
                                 mt: 15,
                                 alignSelf: 'center',}}>
-                            Já tem uma conta? 
-                                <Link   href="#" component={RouterLink} to="/login"
-                                        sx={{paddingLeft: "3px",
-                                             textDecoration: 'underline',
-                                            }}>
-                                    {'Faça o login'}
+                            Não tem uma conta? 
+                                <Link component={RouterLink} to="/register" href="#" sx={{paddingLeft: "3px"}}>
+                                    {'Inscreva-se'}
                                 </Link>
                             </Typography>
 
