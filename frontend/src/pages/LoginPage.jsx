@@ -6,10 +6,30 @@ import VisibilitySharpIcon from '@mui/icons-material/VisibilitySharp';
 import bg from '../assets/medflow.jpeg';
 import { FcGoogle } from 'react-icons/fc';
 import { Link as RouterLink } from "react-router-dom";
+import { loginRequest } from "../services/authService";
 
 export const Login = () => {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+
+    const handleLogin = async () => {
+        setError("");
+
+        try {
+            const response = await loginRequest(email, password);
+
+            const token = response.data.token;
+
+            localStorage.setItem("token", token);
+
+            alert("Login realizado com sucesso!");
+            
+        } 
+            catch (err) {
+                setError("Email ou senha inválidos");
+        }
+        };
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -78,7 +98,8 @@ export const Login = () => {
                         placeholder="Digite Seu Email"
                         color="secondary" 
                         fullWidth
-                        margin="none"  />
+                        margin="none"
+                        onChange={e => setEmail(e.target.value)}  />
 
                         <Typography 
                         variant="label"
@@ -93,6 +114,7 @@ export const Login = () => {
                         fullWidth
                         margin="none"
                         variant="outlined"
+                        onChange={e => setPassword(e.target.value)}
                             InputProps={{
                                 endAdornment: (
                                     <IconButton onClick={handleClickShowPassword} onMouseDown={handleMouseDownPassword}>
@@ -106,7 +128,14 @@ export const Login = () => {
                             {'Esqueceu a senha?'}
                         </Link>
                         
-                        <Button variant="contained" >
+                        {error && (
+                            <Typography color="error" fontSize={14} sx={{ mt: 1 }}>
+                                {error}
+                            </Typography>
+                        )}
+
+                        <Button variant="contained"
+                                onClick={handleLogin} >
                             entrar
                         </Button>
 
