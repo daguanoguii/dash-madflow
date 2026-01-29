@@ -4,6 +4,7 @@ import VisibilityOffSharpIcon from '@mui/icons-material/VisibilityOffSharp';
 import VisibilitySharpIcon from '@mui/icons-material/VisibilitySharp';
 import bg from '../assets/medflow.jpeg';
 import { FcGoogle } from 'react-icons/fc';
+import { Link as RouterLink } from "react-router-dom";
 
 export const SingUp = () => {
 
@@ -160,10 +161,13 @@ export const SingUp = () => {
                             sx={{
                                 mt: 15,
                                 alignSelf: 'center',}}>
-                            Já tem uma conta? <Link href="#" sx={{paddingLeft: "3px",
-                                                                    textDecoration: 'underline',
-                            }}>
-                            {'Faça o login'}</Link>
+                            Já tem uma conta? 
+                                <Link   href="#" component={RouterLink} to="/login"
+                                        sx={{paddingLeft: "3px",
+                                             textDecoration: 'underline',
+                                            }}>
+                                    {'Faça o login'}
+                                </Link>
                             </Typography>
 
                             

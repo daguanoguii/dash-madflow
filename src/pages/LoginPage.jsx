@@ -5,6 +5,7 @@ import VisibilityOffSharpIcon from '@mui/icons-material/VisibilityOffSharp';
 import VisibilitySharpIcon from '@mui/icons-material/VisibilitySharp';
 import bg from '../assets/medflow.jpeg';
 import { FcGoogle } from 'react-icons/fc';
+import { Link as RouterLink } from "react-router-dom";
 
 export const Login = () => {
 
@@ -125,8 +126,10 @@ export const Login = () => {
                             sx={{
                                 mt: 15,
                                 alignSelf: 'center',}}>
-                            Não tem uma conta? <Link href="#" sx={{paddingLeft: "3px"}}>
-                            {'Inscreva-se'}</Link>
+                            Não tem uma conta? 
+                                <Link component={RouterLink} to="/register" href="#" sx={{paddingLeft: "3px"}}>
+                                    {'Inscreva-se'}
+                                </Link>
                             </Typography>
 
                             
