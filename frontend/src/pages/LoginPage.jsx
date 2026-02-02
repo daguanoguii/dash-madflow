@@ -63,7 +63,7 @@ export const Login = () => {
                         boxShadow: "3px 4px 10px rgba(0, 1, 1, 0.33)",
                         gap: '5rem',                     
                         background: 'linear-gradient(180deg, rgba(221, 232, 238, 0.5) 48.5%, rgba(222, 230, 234, 0.5) 100%)',
-                        height: '80vh',
+                        minHeight: '80vh',
 
                     }}>
                     
@@ -150,12 +150,12 @@ export const Login = () => {
                         </Button>
 
                         <Box sx={{display: "inline",
-                                  mt: 6,
+                                  mt: 2,
                         }}>
                             <Typography 
                             variant="sing"
                             sx={{
-                                mt: 15,
+                                mt: 5,
                                 alignSelf: 'center',}}>
                             Não tem uma conta? 
                                 <Link component={RouterLink} to="/register" href="#" sx={{paddingLeft: "3px"}}>
