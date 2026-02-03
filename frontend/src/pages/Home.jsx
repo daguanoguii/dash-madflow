@@ -1,16 +1,8 @@
 import { useState } from "react"
-import { Box, IconButton, Typography, Grid, Card } from "@mui/material"
-import MenuIcon from "@mui/icons-material/Menu"
-import HomeIcon from "@mui/icons-material/Home"
-import EventIcon from "@mui/icons-material/Event"
-import PeopleIcon from "@mui/icons-material/People"
-import BarChartIcon from "@mui/icons-material/BarChart"
-import SettingsIcon from "@mui/icons-material/Settings"
-import LogoutIcon from "@mui/icons-material/Logout"
-import AssignmentIcon from '@mui/icons-material/Assignment'
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
-import { getDiaMesAtual } from '../hooks/home_page/DiaeMes'
+import { Box, IconButton, Typography, Grid, Card, Select, MenuItem } from "@mui/material"
+
 import { Sidebar } from "../components/layouts/SideBar"
+
 
 
 export const Home = () => {
@@ -19,68 +11,60 @@ export const Home = () => {
 
 
   return (
-    <Box sx={{ display: "flex" }}>
-      {/* SIDEBAR */}
+    <Box sx={{ display: "flex"  }}>
+      
       <Sidebar open={open} setOpen={setOpen}/>
 
-      {/* CONTEÚDO */}
+      {/* HEADER */}
       <Box sx={{ flexGrow: 1, p: 3 }}>
+        <Box
+          component="header"
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              
+              mb: 3
+            }}
+        >
+          
+
+            <Box>
+                <Typography variant="h5" fontWeight="bold">
+                    Bem vindo!
+                </Typography>
+
+                <Typography color="text.secondary">
+                  Aqui está um resumo da saúde financeira do seu empreendimento.
+                </Typography>
+            </Box>
+
+          
+
+            <Box >
+              <Box sx={{ display: "flex", gap: 2 }}>
+              
+                <Select size="small" defaultValue="2024">
+                    <MenuItem value="2024">2024</MenuItem>
+                    <MenuItem value="2025">2025</MenuItem>
+                </Select>
+
+                <Select size="small" defaultValue="Janeiro">
+                    <MenuItem>Janeiro</MenuItem>
+                    <MenuItem>Fevereiro</MenuItem>
+                </Select>
         
-        <Typography variant="h5" fontWeight="bold">
-            Dashboard
-        </Typography>
-
-        <Typography color="text.secondary">
-            {getDiaMesAtual()}
-        </Typography>
+              </Box>
+            </Box>
+        </Box>
       </Box>
-
-        <Grid container spacing={2} mb={3}>
-            <Grid item xs={12} md={3}>
-                <SummaryCard title="Consultas Hoje" value="18" />
-            </Grid>
-
-            <Grid item xs={12} md={3}>
-                <SummaryCard title="Pacientes Atendidos" value="12" />
-            </Grid>
-
-            <Grid item xs={12} md={3}>
-                <SummaryCard title="Cancelamentos" value="2" />
-            </Grid>
-
-            <Grid item xs={12} md={3}>
-                <SummaryCard title="Faturamento" value="R$ 3.200" />
-            </Grid>
-        </Grid> 
-
-        <Grid container spacing={2}>
-            <Grid item xs={12} md={8}>
-                <Card sx={{ p: 2 }}>
-                <Typography variant="h6" mb={2}>Consultas de Hoje</Typography>
-                            {/* tabela aqui */}
-                </Card>
-        </Grid>
-
-         <Grid item xs={12} md={4}>
-            <Card sx={{ p: 2 }}>
-            <Typography variant="h6">Hoje na Clínica</Typography>
-
-            <Typography mt={2} fontWeight="bold">Próxima consulta</Typography>
-            <Typography>10:00 - Marcos Silva</Typography>
-
-            <Typography mt={2} fontWeight="bold">Aguardando</Typography>
-            <Typography>Maria - 09:00</Typography>
-
-            <Typography mt={2} fontWeight="bold" color="error">Cancelamentos</Typography>
-            <Typography>João - 14:00</Typography>
-            </Card>
-         </Grid>
-        </Grid>
-        <Card sx={{ p: 2, mt: 3 }}>
-        <Typography variant="h6">Consultas nos últimos 7 dias</Typography>
-                {/* gráfico depois */}
-        </Card>
     </Box>
+
+        
+        
+
+
+
   )
 }
 
