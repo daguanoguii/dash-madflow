@@ -1,6 +1,5 @@
 import { useState } from "react"
-import { Box, IconButton, Typography, Grid, Card, Select, MenuItem } from "@mui/material"
-
+import { Box, IconButton, Typography, Grid, Card, Select, MenuItem, TextField } from "@mui/material"
 import { Sidebar } from "../components/layouts/SideBar"
 
 
@@ -11,12 +10,13 @@ export const Home = () => {
 
 
   return (
-    <Box sx={{ display: "flex"  }}>
+    <Box sx={{ display: "flex" }}>
       
       <Sidebar open={open} setOpen={setOpen}/>
 
-      {/* HEADER */}
-      <Box sx={{ flexGrow: 1, p: 3 }}>
+      
+      <Box sx={{ flexGrow: 1, p: 3, display:"flex", flexDirection:"column", background: 'linear-gradient(180deg, rgba(221, 232, 238, 0.5) 48.5%, rgba(222, 230, 234, 0.5) 100%)'}}>
+            {/* HEADER */}
         <Box
           component="header"
             sx={{
@@ -57,6 +57,38 @@ export const Home = () => {
               </Box>
             </Box>
         </Box>
+      
+            {/*MAIN*/}
+      
+          <Grid container spacing={2} flexDirection="row">
+            <Grid item xs={12} sm={6} md={3} >
+              <Box sx={{ justifyContent:"initial", height: "100%", width:"150px", backgroundColor:"#ff0000"}}>
+                <Typography variant="h5" fontWeight="bold">
+                    Organizar as finanças hoje é o que permite investir com segurança, crescer com inteligência e manter a saúde do seu negócio no futuro.
+                </Typography>
+              </Box>
+            </Grid>
+            
+            <Grid item xs={12} sm={6} md={3}>
+              <SummaryCard title="Receita Total" value="R$ 15.000,00" />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
+              <SummaryCard title="Despesas Totais" value="R$ 8.000,00" />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
+              <SummaryCard title="Lucro Líquido" value="R$ 7.000,00" />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={3}>
+              <SummaryCard title="Pacientes Ativos" value="120" />
+            </Grid>
+           
+
+          </Grid>
+        
+
       </Box>
     </Box>
 
@@ -75,24 +107,4 @@ export const Home = () => {
   </Card>
 )
 
-const SidebarItem = ({ icon, label, open }) => (
-  <Box
-    sx={{
-      display: "flex",
-      alignItems: "center",
-      gap: 2,
-      p: 1,
-      borderRadius: 2,
-      cursor: "pointer",
-      color: "white",
-      "&:hover": { backgroundColor: "#6d5bd03f",
-                    transition:
-                      "background-color 0.3s"
-       }
-    }}
-  >
 
-    {icon}
-    {open && <Typography>{label}</Typography>}
-  </Box>
-)
