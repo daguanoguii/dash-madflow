@@ -15,7 +15,7 @@ export const Sidebar = ({ open, setOpen }) => {
     <Box
       sx={{
         width: open ? 220 : 80,
-        height: "100vh",
+        minHeight: "100vh",
         backgroundColor: "#3e3283fc",
         transition: "width 0.3s",
         display: "flex",

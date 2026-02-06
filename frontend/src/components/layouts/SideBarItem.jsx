@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material"
 const SidebarItem = ({ icon, label, open }) => (
   <Box
     sx={{
+      
       display: "flex",
       alignItems: "center",
       gap: 2,
